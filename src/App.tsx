@@ -9,8 +9,8 @@ console.log(typeof component)
 
 
 function App() {
-    function handelClick(){
-        console.log("Hello World!!!!!")
+    function handelSelect(selectBtn){
+        console.log(selectBtn)
     }
     return (
         <div>
@@ -51,19 +51,20 @@ function App() {
                         Examples
                     </h2>
                     <menu>
-                        <TabButton onSelect={handelClick}>
+                        <TabButton onSelect={()=>handelSelect("Components")}>
                             Components
                         </TabButton>
-                        <TabButton onSelect={handelClick}>
+                        <TabButton onSelect={()=>handelSelect("JSX")}>
                             JSX
                         </TabButton>
-                        <TabButton onSelect={handelClick}>
+                        <TabButton onSelect={()=>handelSelect("Props")}>
                             Props
                         </TabButton>
-                        <TabButton onSelect={handelClick}>
+                        <TabButton onSelect={()=>handelSelect("State")}>
                             State
                         </TabButton>
                     </menu>
+                    Dynamic Content
                 </section>
             </main>
         </div>
