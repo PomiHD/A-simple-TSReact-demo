@@ -3,15 +3,21 @@ import {CORE_CONCEPTS} from "./data";
 import {Header} from './components/Header/Header'
 import CoreConcept from "./components/CoreConcept";
 import TabButton from "./components/TabButton";
+import {useState} from "react"; 
+// 1. must call useSate() in component function 
+// 2. must place on the top of component function
 import React from "react";
 
 console.log(typeof component)
 
 
 function App() {
+    let tabContent = "Please click a button";
     function handelSelect(selectBtn){
-        console.log(selectBtn)
+        tabContent = selectBtn;
+        console.log(tabContent)
     }
+    console.log("App component executing.")
     return (
         <div>
             {/*<Header></Header>*/}
@@ -64,7 +70,7 @@ function App() {
                             State
                         </TabButton>
                     </menu>
-                    Dynamic Content
+                    {tabContent}
                 </section>
             </main>
         </div>
