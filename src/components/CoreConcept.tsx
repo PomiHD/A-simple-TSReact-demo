@@ -1,10 +1,6 @@
 ﻿import React from "react";
 
-export default function CoreConcept({title, description, image}: {
-    title: string;
-    description: string;
-    image: string
-}) {
+export default function CoreConcept({title, description, image}: { title: string; description: string; image: string }) {
     return (
         <li>
             <img src={image} alt={title}/>

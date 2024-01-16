@@ -3,23 +3,21 @@ import {CORE_CONCEPTS} from "./data";
 import {Header} from './components/Header/Header'
 import CoreConcept from "./components/CoreConcept";
 import TabButton from "./components/TabButton";
-import React, {useState} from "react";
-import {EXAMPLES} from "./data-with-examples";
+import {useState} from "react"; 
 // 1. must call useSate() in component function 
 // 2. must place on the top of component function
+import React from "react";
 
 console.log(typeof component)
 
 
 function App() {
-   
-    const [selectedTopic, setSelectedTopic] = useState("components");
-
-    function handelSelect(selectBtn) {
+    let tabContent = "Please click a button";
+    const [selectedTopic,setSelectedTopic] = useState("Please click a button");
+    function handelSelect(selectBtn){
         setSelectedTopic(selectBtn)
-        // console.log(selectedTopic)
+        console.log(selectedTopic)
     }
-
     console.log("App component executing.")
     return (
         <div>
@@ -55,7 +53,7 @@ function App() {
                         />
                     </ul>
                 </section>
-                <section id="examples">
+                <section id ="examples">
                     <h2>
                         Examples
                     </h2>
@@ -67,33 +65,20 @@ function App() {
                         {/*not when the button is clicked. This causes the function to be called continuously */}
                         {/*in an infinite loop,*/}
                         {/*which is likely crashing the application.*/}
-                        <TabButton onSelect={() => handelSelect("Components")}>
+                        <TabButton onSelect={()=>handelSelect("Components")}>
                             Components
                         </TabButton>
-                        <TabButton onSelect={() => handelSelect("JSX")}>
+                        <TabButton onSelect={()=>handelSelect("JSX")}>
                             JSX
                         </TabButton>
-                        <TabButton onSelect={() => handelSelect("Props")}>
+                        <TabButton onSelect={()=>handelSelect("Props")}>
                             Props
                         </TabButton>
-                        <TabButton onSelect={() => handelSelect("State")}>
+                        <TabButton onSelect={()=>handelSelect("State")}>
                             State
                         </TabButton>
                     </menu>
-
-                    <div id="tab-content">
-                        <h3>
-                            {EXAMPLES[selectedTopic].title}
-                        </h3>
-                        <p>
-                            {EXAMPLES[selectedTopic].description}
-                        </p>
-                        <pre>
-                            <code>
-                                {EXAMPLES[selectedTopic].code}
-                            </code>
-                        </pre>
-                    </div>
+                    {selectedTopic}
                 </section>
             </main>
         </div>
