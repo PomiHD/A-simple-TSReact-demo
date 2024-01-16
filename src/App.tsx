@@ -27,7 +27,7 @@ function App() {
 
     console.log("App component executing.")
     let tabContent = <p>Please select a topic.</p>;
-    if(selectedTopic){
+    if (selectedTopic) {
         tabContent = (<div id="tab-content">
             <h3>
                 {EXAMPLES[selectedTopic].title}
@@ -63,17 +63,28 @@ function App() {
                         {/*    title="Compoent 3"*/}
                         {/*    description="UI 3"*/}
                         {/*    image = {component}/>*/}
-                        <CoreConcept
-                            title={CORE_CONCEPTS[0].title}
-                            description={CORE_CONCEPTS[0].description}
-                            image={CORE_CONCEPTS[0].image}
-                        />
-                        <CoreConcept {...CORE_CONCEPTS[1]}
-                        />
-                        <CoreConcept {...CORE_CONCEPTS[2]}
-                        />
-                        <CoreConcept {...CORE_CONCEPTS[3]}
-                        />
+
+                        {/*<CoreConcept*/}
+                        {/*    title={CORE_CONCEPTS[0].title}*/}
+                        {/*    description={CORE_CONCEPTS[0].description}*/}
+                        {/*    image={CORE_CONCEPTS[0].image}*/}
+                        {/*/>*/}
+                        {/*<CoreConcept {...CORE_CONCEPTS[1]}*/}
+                        {/*/>*/}
+                        {/*<CoreConcept {...CORE_CONCEPTS[2]}*/}
+                        {/*/>*/}
+                        {/*<CoreConcept {...CORE_CONCEPTS[3]}*/}
+                        {/*/>*/}
+
+                        {CORE_CONCEPTS.map((item) =>
+                            <CoreConcept key ={ item.title}
+                                title={item.title} 
+                                description={item.description} 
+                                image={item.image}/>)}
+                        {/*alternative way to achieve above*/}
+                        {/*{CORE_CONCEPTS.map((item) =>*/}
+                        {/*    <CoreConcept {...item}/>)}*/}
+                        
                     </ul>
                 </section>
                 <section id="examples">
@@ -88,16 +99,17 @@ function App() {
                         {/*not when the button is clicked. This causes the function to be called continuously */}
                         {/*in an infinite loop,*/}
                         {/*which is likely crashing the application.*/}
-                        <TabButton isSelected={selectedTopic=="components"} onSelect={() => handelSelect("components")}>
+                        <TabButton isSelected={selectedTopic == "components"}
+                                   onSelect={() => handelSelect("components")}>
                             Components
                         </TabButton>
-                        <TabButton isSelected={selectedTopic=="jsx"} onSelect={() => handelSelect("jsx")}>
+                        <TabButton isSelected={selectedTopic == "jsx"} onSelect={() => handelSelect("jsx")}>
                             JSX
                         </TabButton>
-                        <TabButton isSelected={selectedTopic=="props"} onSelect={() => handelSelect("props")}>
+                        <TabButton isSelected={selectedTopic == "props"} onSelect={() => handelSelect("props")}>
                             Props
                         </TabButton>
-                        <TabButton isSelected={selectedTopic=="state"} onSelect={() => handelSelect("state")}>
+                        <TabButton isSelected={selectedTopic == "state"} onSelect={() => handelSelect("state")}>
                             State
                         </TabButton>
                     </menu>
