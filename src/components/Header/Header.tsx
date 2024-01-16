@@ -1,4 +1,5 @@
-﻿import img1 from "../assets/react-core-concepts.png";
+﻿import img1 from "../../assets/react-core-concepts.png"
+import "./Header.css"
 import React from "react";
 
 function genRandomInt(max) {
