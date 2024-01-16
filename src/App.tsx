@@ -10,17 +10,23 @@ import {EXAMPLES} from "./data-with-examples";
 
 console.log(typeof component)
 
+// Define the type for the EXAMPLES keys, if it's not already defined
+type ExampleKey = keyof typeof EXAMPLES;
 
 function App() {
 
-    const [selectedTopic, setSelectedTopic] = useState("components");
+    // const [selectedTopic, setSelectedTopic] = useState();
+    // Explicitly define the type of selectedTopic as ExampleKey or undefined,
+    // state can be either a value of type ExampleKey or undefined
+    const [selectedTopic, setSelectedTopic] = useState<ExampleKey | undefined>();
 
     function handelSelect(selectBtn) {
         setSelectedTopic(selectBtn)
-        // console.log(selectedTopic)
+        console.log(selectedTopic)
     }
 
     console.log("App component executing.")
+    
     return (
         <div>
             {/*<Header></Header>*/}
@@ -80,8 +86,7 @@ function App() {
                             State
                         </TabButton>
                     </menu>
-
-                    <div id="tab-content">
+                    {!selectedTopic ? <p>Please select a topic.</p> : (<div id="tab-content">
                         <h3>
                             {EXAMPLES[selectedTopic].title}
                         </h3>
@@ -93,7 +98,7 @@ function App() {
                                 {EXAMPLES[selectedTopic].code}
                             </code>
                         </pre>
-                    </div>
+                    </div>)}
                 </section>
             </main>
         </div>
