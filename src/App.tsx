@@ -13,9 +13,10 @@ console.log(typeof component)
 
 function App() {
     let tabContent = "Please click a button";
+    const [selectedTopic,setSelectedTopic] = useState("Please click a button");
     function handelSelect(selectBtn){
-        tabContent = selectBtn;
-        console.log(tabContent)
+        setSelectedTopic(selectBtn)
+        console.log(selectedTopic)
     }
     console.log("App component executing.")
     return (
@@ -57,6 +58,13 @@ function App() {
                         Examples
                     </h2>
                     <menu>
+                        {/*Note here we use "()=>handelSelect("Components")".If only use "handelSelect("Components")", then*/}
+                        {/*The issue with code is in the way the handelSelect function is being called */}
+                        {/*on the onSelect event of the button. In its current state, */}
+                        {/*the function is being executed immediately when the component is rendered,*/}
+                        {/*not when the button is clicked. This causes the function to be called continuously */}
+                        {/*in an infinite loop,*/}
+                        {/*which is likely crashing the application.*/}
                         <TabButton onSelect={()=>handelSelect("Components")}>
                             Components
                         </TabButton>
@@ -70,7 +78,7 @@ function App() {
                             State
                         </TabButton>
                     </menu>
-                    {tabContent}
+                    {selectedTopic}
                 </section>
             </main>
         </div>
