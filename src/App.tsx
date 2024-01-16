@@ -9,6 +9,9 @@ console.log(typeof component)
 
 
 function App() {
+    function handelClick(){
+        console.log("Hello World!!!!!")
+    }
     return (
         <div>
             {/*<Header></Header>*/}
@@ -48,16 +51,16 @@ function App() {
                         Examples
                     </h2>
                     <menu>
-                        <TabButton>
+                        <TabButton onSelect={handelClick}>
                             Components
                         </TabButton>
-                        <TabButton>
+                        <TabButton onSelect={handelClick}>
                             JSX
                         </TabButton>
-                        <TabButton>
+                        <TabButton onSelect={handelClick}>
                             Props
                         </TabButton>
-                        <TabButton>
+                        <TabButton onSelect={handelClick}>
                             State
                         </TabButton>
                     </menu>
