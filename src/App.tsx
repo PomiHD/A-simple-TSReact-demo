@@ -88,16 +88,16 @@ function App() {
                         {/*not when the button is clicked. This causes the function to be called continuously */}
                         {/*in an infinite loop,*/}
                         {/*which is likely crashing the application.*/}
-                        <TabButton onSelect={() => handelSelect("components")}>
+                        <TabButton isSelected={selectedTopic=="components"} onSelect={() => handelSelect("components")}>
                             Components
                         </TabButton>
-                        <TabButton onSelect={() => handelSelect("jsx")}>
+                        <TabButton isSelected={selectedTopic=="jsx"} onSelect={() => handelSelect("jsx")}>
                             JSX
                         </TabButton>
-                        <TabButton onSelect={() => handelSelect("props")}>
+                        <TabButton isSelected={selectedTopic=="props"} onSelect={() => handelSelect("props")}>
                             Props
                         </TabButton>
-                        <TabButton onSelect={() => handelSelect("state")}>
+                        <TabButton isSelected={selectedTopic=="state"} onSelect={() => handelSelect("state")}>
                             State
                         </TabButton>
                     </menu>
