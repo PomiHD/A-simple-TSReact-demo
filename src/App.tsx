@@ -13,7 +13,7 @@ function App() {
 
 
     return (
-        <Fragment>
+        <>
             {/*<Header></Header>*/}
             {/*<Header />*/}
             <Header/>
@@ -21,7 +21,7 @@ function App() {
                 <CoreConcepts/>
                 <Examples/>
             </main>
-        </Fragment>
+        </>
     );
 }
 
