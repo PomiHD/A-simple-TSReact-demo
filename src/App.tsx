@@ -7,7 +7,7 @@ import React, {useState} from "react";
 import {EXAMPLES} from "./data-with-examples";
 // 1. must call useSate() in component function 
 // 2. must place on the top of component function
-
+import {Fragment} from "react";
 console.log(typeof component)
 
 // Define the type for the EXAMPLES keys, if it's not already defined
@@ -43,7 +43,7 @@ function App() {
         </div>)
     }
     return (
-        <div>
+        <Fragment>
             {/*<Header></Header>*/}
             {/*<Header />*/}
             <Header/>
@@ -78,13 +78,13 @@ function App() {
 
                         {CORE_CONCEPTS.map((item) =>
                             <CoreConcept key ={ item.title}
-                                title={item.title} 
-                                description={item.description} 
-                                image={item.image}/>)}
+                                         title={item.title}
+                                         description={item.description}
+                                         image={item.image}/>)}
                         {/*alternative way to achieve above*/}
                         {/*{CORE_CONCEPTS.map((item) =>*/}
                         {/*    <CoreConcept {...item}/>)}*/}
-                        
+
                     </ul>
                 </section>
                 <section id="examples">
@@ -116,7 +116,9 @@ function App() {
                     {tabContent}
                 </section>
             </main>
-        </div>
+        </Fragment>
+            
+        
     );
 }
 
