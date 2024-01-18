@@ -1,7 +1,9 @@
-﻿export default function Tab({ children, buttons }) {
+﻿export default function Tab({ children, buttons, ButtonContainer }) {
+  // must start with capital
+  // const ButtonContainer = buttonContainer;
   return (
     <>
-      <menu>{buttons}</menu>
+      <ButtonContainer>{buttons}</ButtonContainer>
       {children}
     </>
   );

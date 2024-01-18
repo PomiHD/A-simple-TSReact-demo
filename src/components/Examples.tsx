@@ -34,6 +34,7 @@ export default function Examples() {
   return (
     <Section title="Examples" id="examples">
       <Tab
+        ButtonContainer="menu" // If use custom component add {} to wrap it, e.g. ButtonContainer={Section}
         buttons={
           <>
             {/*Note here we use "()=>handelSelect("Components")".If only use "handelSelect("Components")", then*/}
