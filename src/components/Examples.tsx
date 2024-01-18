@@ -1,7 +1,7 @@
 ﻿import TabButton from "./TabButton";
 import React, { useState } from "react";
 import { EXAMPLES } from "../data-with-examples";
-
+import Section from "./Section";
 // Define the type for the EXAMPLES keys, if it's not already defined
 type ExampleKey = keyof typeof EXAMPLES;
 export default function Examples() {
@@ -31,8 +31,7 @@ export default function Examples() {
     );
   }
   return (
-    <section id="examples">
-      <h2>Examples</h2>
+    <Section title="Examples" id="examples">
       <menu>
         {/*Note here we use "()=>handelSelect("Components")".If only use "handelSelect("Components")", then*/}
         {/*The issue with code is in the way the handelSelect function is being called */}
@@ -43,30 +42,30 @@ export default function Examples() {
         {/*which is likely crashing the application.*/}
         <TabButton
           isSelected={selectedTopic == "components"}
-          onSelect={() => handelSelect("components")}
+          onClick={() => handelSelect("components")}
         >
           Components
         </TabButton>
         <TabButton
           isSelected={selectedTopic == "jsx"}
-          onSelect={() => handelSelect("jsx")}
+          onClick={() => handelSelect("jsx")}
         >
           JSX
         </TabButton>
         <TabButton
           isSelected={selectedTopic == "props"}
-          onSelect={() => handelSelect("props")}
+          onClick={() => handelSelect("props")}
         >
           Props
         </TabButton>
         <TabButton
           isSelected={selectedTopic == "state"}
-          onSelect={() => handelSelect("state")}
+          onClick={() => handelSelect("state")}
         >
           State
         </TabButton>
       </menu>
       {tabContent}
-    </section>
+    </Section>
   );
 }
