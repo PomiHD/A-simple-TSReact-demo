@@ -1,9 +1,11 @@
-﻿export default function Tab({ children, buttons, ButtonContainer }) {
+﻿import React from "react";
+
+export default function Tab({ children, buttons, ButtonContainer = "menu" }) {
   // must start with capital
   // const ButtonContainer = buttonContainer;
   return (
     <>
-      <ButtonContainer>{buttons}</ButtonContainer>
+      {React.createElement(ButtonContainer, {}, buttons)}
       {children}
     </>
   );
